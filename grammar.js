@@ -158,7 +158,11 @@ module.exports = grammar({
   rules: {
     compilation_unit: $ => seq(
       optional($.shebang_directive),
-      repeat($._top_level_item),
+      repeat(choice(
+        $.reference_directive,
+        $.load_directive,
+        $._top_level_item
+      )),
     ),
 
     _top_level_item: $ => prec(2, choice(
@@ -2048,6 +2052,8 @@ module.exports = grammar({
       /\n/,
     ),
 
+    reference_directive: $ => seq('#r', $.string_literal),
+    load_directive: $ => seq('#load', $.string_literal),
     shebang_directive: _ => token(seq('#!', /.*/)),
 
     comment: _ => token(choice(

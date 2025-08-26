@@ -1707,11 +1707,19 @@
           "named": true
         },
         {
+          "type": "load_directive",
+          "named": true
+        },
+        {
           "type": "namespace_declaration",
           "named": true
         },
         {
           "type": "preproc_if",
+          "named": true
+        },
+        {
+          "type": "reference_directive",
           "named": true
         },
         {
@@ -3573,6 +3581,21 @@
     }
   },
   {
+    "type": "load_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "local_declaration_statement",
     "named": true,
     "fields": {},
@@ -5303,6 +5326,21 @@
     }
   },
   {
+    "type": "reference_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "reftype_expression",
     "named": true,
     "fields": {},
@@ -6335,11 +6373,19 @@
     "named": false
   },
   {
+    "type": "#load",
+    "named": false
+  },
+  {
     "type": "#nullable",
     "named": false
   },
   {
     "type": "#pragma",
+    "named": false
+  },
+  {
+    "type": "#r",
     "named": false
   },
   {

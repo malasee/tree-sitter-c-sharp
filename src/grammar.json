@@ -21,8 +21,21 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "_top_level_item"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "reference_directive"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "load_directive"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_top_level_item"
+              }
+            ]
           }
         }
       ]
@@ -11626,6 +11639,32 @@
         {
           "type": "PATTERN",
           "value": "\\n"
+        }
+      ]
+    },
+    "reference_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#r"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string_literal"
+        }
+      ]
+    },
+    "load_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#load"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string_literal"
         }
       ]
     },
